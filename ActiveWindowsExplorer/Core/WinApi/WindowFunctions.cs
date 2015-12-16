@@ -8,26 +8,29 @@ namespace ActiveWindowsExplorer.Core.WinApi
 
     public static class WindowFunctions
     {
-        [DllImport("User32.dll")]
+        [DllImport("user32.dll", SetLastError = true)]
         public static extern bool EnumWindows(EnumWindowsCallback callback, IntPtr param);
 
-        [DllImport("User32.dll")]
+        [DllImport("user32.dll", SetLastError = true)]
         public static extern bool IsWindowVisible(IntPtr handler);
 
-        [DllImport("User32.dll")]
+        [DllImport("user32.dll", SetLastError = true)]
         public static extern IntPtr GetAncestor(IntPtr handler, int flags);
 
-        [DllImport("User32.dll")]
+        [DllImport("user32.dll", SetLastError = true)]
         public static extern IntPtr GetLastActivePopup(IntPtr handler);
 
-        [DllImport("User32.dll")]
+        [DllImport("user32.dll", SetLastError = true)]
         public static extern int GetWindowText(IntPtr handler, StringBuilder title, int maxSize);
 
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool GetTitleBarInfo(IntPtr hwnd, ref TITLEBARINFO pti);
 
-        [DllImport("user32.dll")]
+        [DllImport("user32.dll", SetLastError = true)]
         public static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern IntPtr FindWindowEx(IntPtr parentHandle, IntPtr childAfter, string className, string windowTitle);
     }
 }

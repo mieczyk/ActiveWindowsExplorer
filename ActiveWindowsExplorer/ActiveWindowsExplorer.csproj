@@ -47,6 +47,9 @@
     <Compile Include="Core\WinApi\Constants.cs" />
     <Compile Include="Core\WinApi\TITLEBARINFO.cs" />
     <Compile Include="Core\WinApi\WindowFunctions.cs" />
+    <Compile Include="Core\WindowInfo.cs" />
+    <Compile Include="Core\WindowsExplorer.cs" />
+    <Compile Include="Core\WindowsManager.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
