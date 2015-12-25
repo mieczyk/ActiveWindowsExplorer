@@ -23,6 +23,9 @@ namespace ActiveWindowsExplorer.Core.WinApi
         [DllImport("user32.dll", SetLastError = true)]
         public static extern int GetWindowText(IntPtr handler, StringBuilder title, int maxSize);
 
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        public static extern int GetClassName(IntPtr handler, StringBuilder className, int maxSize);
+
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool GetTitleBarInfo(IntPtr hwnd, ref TITLEBARINFO pti);
@@ -31,6 +34,7 @@ namespace ActiveWindowsExplorer.Core.WinApi
         public static extern int GetWindowLong(IntPtr hWnd, int nIndex);
 
         [DllImport("user32.dll", SetLastError = true)]
-        public static extern IntPtr FindWindowEx(IntPtr parentHandle, IntPtr childAfter, string className, string windowTitle);
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool EnumChildWindows(IntPtr root, EnumWindowsCallback callback, IntPtr param);
     }
 }

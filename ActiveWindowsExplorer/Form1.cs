@@ -20,9 +20,18 @@ namespace ActiveWindowsExplorer
             _manager.LoadActiveWindows();
 
             _windowsTreeView.Nodes.Clear();
-            foreach (var windowInfo in _manager.Windows)
+
+            var windowsWithDescendants = _manager.WindowsWithDescendants;
+
+            foreach (var windowEntry in windowsWithDescendants)
             {
-                _windowsTreeView.Nodes.Add(windowInfo.Title);
+                var rootWindow = windowEntry.Key;
+                var rootNode = _windowsTreeView.Nodes.Add(rootWindow.Handler.ToString(), rootWindow.ToString());
+
+                foreach (var descendant in windowEntry.Value)
+                {
+                    rootNode.Nodes.Add(descendant.Handler.ToString(), descendant.ToString());
+                }
             }
 
             label1.Text = _manager.Windows.Count().ToString();

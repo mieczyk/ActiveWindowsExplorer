@@ -15,10 +15,8 @@ namespace ActiveWindowsExplorer.Core
             {
                 if (is_alt_tab_window(handler))
                 {
-                    var window = new WindowInfo(handler);
+                    var window = new WindowInfo(handler, IntPtr.Zero);
                     
-                    load_children_windows_for(window);
-
                     windows.Add(window);
                 }
 
@@ -74,9 +72,19 @@ namespace ActiveWindowsExplorer.Core
             return true;
         }
 
-        private static void load_children_windows_for(WindowInfo window)
+        public IList<WindowInfo> GetDescendantWindows(IntPtr rootHandler)
         {
-            
+            var descendants = new List<WindowInfo>();
+
+            WindowFunctions.EnumChildWindows(rootHandler, (handler, param) =>
+            {
+                var descendant = new WindowInfo(handler, rootHandler);
+                descendants.Add(descendant);
+
+                return true;
+            }, IntPtr.Zero);
+
+            return descendants;
         }
     }
 }
