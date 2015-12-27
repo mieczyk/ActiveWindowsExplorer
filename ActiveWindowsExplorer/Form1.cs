@@ -21,20 +21,27 @@ namespace ActiveWindowsExplorer
 
             _windowsTreeView.Nodes.Clear();
 
-            var windowsWithDescendants = _manager.WindowsWithDescendants;
+            var handlers = _manager.Windows.Select(w => w.Handler);
+            var rootWindows = _manager.Windows.Where(w => !handlers.Contains(w.ParentHandler));
 
-            foreach (var windowEntry in windowsWithDescendants)
+            foreach (var window in rootWindows)
             {
-                var rootWindow = windowEntry.Key;
-                var rootNode = _windowsTreeView.Nodes.Add(rootWindow.Handler.ToString(), rootWindow.ToString());
-
-                foreach (var descendant in windowEntry.Value)
-                {
-                    rootNode.Nodes.Add(descendant.Handler.ToString(), descendant.ToString());
-                }
+                var rootNode = _windowsTreeView.Nodes.Add(window.Handler.ToString(), window.ToString());
+                populate_tree_view_for_window(window, rootNode);
             }
 
             label1.Text = _manager.Windows.Count().ToString();
+        }
+
+        private void populate_tree_view_for_window(WindowInfo window, TreeNode node)
+        {
+            var children = _manager.Windows.Where(w => w.ParentHandler == window.Handler);
+
+            foreach (var child in children)
+            {
+                var childNode = node.Nodes.Add(child.Handler.ToString(), child.ToString());
+                populate_tree_view_for_window(child, childNode);
+            }
         }
     }
 }

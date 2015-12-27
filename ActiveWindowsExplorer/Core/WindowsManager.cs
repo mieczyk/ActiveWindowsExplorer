@@ -10,23 +10,6 @@ namespace ActiveWindowsExplorer.Core
 
         public IEnumerable<WindowInfo> Windows { get; private set; }
 
-        public IDictionary<WindowInfo, WindowInfo[]> WindowsWithDescendants
-        {
-            get
-            {
-                var windowsMap = new Dictionary<WindowInfo, WindowInfo[]>();
-
-                var rootWindows = Windows.Where(w => w.ParentHandler == IntPtr.Zero);
-                foreach (var rootWindow in rootWindows)
-                {
-                    var descendants = Windows.Where(w => w.ParentHandler == rootWindow.Handler);
-                    windowsMap.Add(rootWindow, descendants.ToArray());
-                }
-
-                return windowsMap;
-            }
-        }
-
         public WindowsManager(WindowsExplorer explorer)
         {
             _explorer = explorer;
