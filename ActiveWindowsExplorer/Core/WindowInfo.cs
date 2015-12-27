@@ -6,18 +6,23 @@ namespace ActiveWindowsExplorer.Core
 {
     public class WindowInfo
     {
-        public IntPtr RootHandler { get; private set; }
+        public IntPtr ParentHandler { get; private set; }
         public IntPtr Handler { get; private set; }
         public string Title { get; private set; }
         public string ClassName { get; private set; }
 
-        public WindowInfo(IntPtr handler, IntPtr rootHandler)
+        public WindowInfo(IntPtr handler)
         {
             Handler = handler;
-            RootHandler = rootHandler;
 
+            ParentHandler = extract_window_parent(handler);
             Title = extract_window_title(handler);
             ClassName = extract_window_class_name(handler);
+        }
+
+        private static IntPtr extract_window_parent(IntPtr handler)
+        {
+            return WindowFunctions.GetParent(handler);
         }
 
         private static string extract_window_title(IntPtr handler)

@@ -16,10 +16,10 @@ namespace ActiveWindowsExplorer.Core
             {
                 var windowsMap = new Dictionary<WindowInfo, WindowInfo[]>();
 
-                var rootWindows = Windows.Where(w => w.RootHandler == IntPtr.Zero);
+                var rootWindows = Windows.Where(w => w.ParentHandler == IntPtr.Zero);
                 foreach (var rootWindow in rootWindows)
                 {
-                    var descendants = Windows.Where(w => w.RootHandler == rootWindow.Handler);
+                    var descendants = Windows.Where(w => w.ParentHandler == rootWindow.Handler);
                     windowsMap.Add(rootWindow, descendants.ToArray());
                 }
 

@@ -15,7 +15,7 @@ namespace ActiveWindowsExplorer.Core
             {
                 if (is_alt_tab_window(handler))
                 {
-                    var window = new WindowInfo(handler, IntPtr.Zero);
+                    var window = new WindowInfo(handler);
                     
                     windows.Add(window);
                 }
@@ -78,7 +78,7 @@ namespace ActiveWindowsExplorer.Core
 
             WindowFunctions.EnumChildWindows(rootHandler, (handler, param) =>
             {
-                var descendant = new WindowInfo(handler, rootHandler);
+                var descendant = new WindowInfo(handler);
                 descendants.Add(descendant);
 
                 return true;
