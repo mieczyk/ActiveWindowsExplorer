@@ -4,7 +4,7 @@ using ActiveWindowsExplorer.Core;
 
 namespace ActiveWindowsExplorer.UI
 {
-    public partial class MainView : Form
+    public partial class MainView : Form, IMainView
     {
         private readonly WindowsManager _manager;
 

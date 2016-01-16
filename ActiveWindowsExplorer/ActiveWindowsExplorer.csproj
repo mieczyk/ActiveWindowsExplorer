@@ -50,6 +50,9 @@
     <Compile Include="Core\WindowInfo.cs" />
     <Compile Include="Core\WindowsExplorer.cs" />
     <Compile Include="Core\WindowsManager.cs" />
+    <Compile Include="UI\IMainView.cs" />
+    <Compile Include="UI\IWindowDetailsView.cs" />
+    <Compile Include="UI\IWindowsListView.cs" />
     <Compile Include="UI\MainView.cs">
       <SubType>Form</SubType>
     </Compile>
