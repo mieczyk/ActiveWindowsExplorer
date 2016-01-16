@@ -31,7 +31,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.windowDetailsView1 = new ActiveWindowsExplorer.UI.WindowDetailsView();
-            this.windowsListView1 = new ActiveWindowsExplorer.UI.WindowsListView();
+            this._windowsListView = new ActiveWindowsExplorer.UI.WindowsListView();
             this.SuspendLayout();
             // 
             // button1
@@ -69,14 +69,14 @@
             this.windowDetailsView1.Size = new System.Drawing.Size(272, 255);
             this.windowDetailsView1.TabIndex = 11;
             // 
-            // windowsListView1
+            // _windowsListView
             // 
-            this.windowsListView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this._windowsListView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.windowsListView1.Location = new System.Drawing.Point(12, 12);
-            this.windowsListView1.Name = "windowsListView1";
-            this.windowsListView1.Size = new System.Drawing.Size(526, 438);
-            this.windowsListView1.TabIndex = 10;
+            this._windowsListView.Location = new System.Drawing.Point(12, 12);
+            this._windowsListView.Name = "_windowsListView";
+            this._windowsListView.Size = new System.Drawing.Size(526, 438);
+            this._windowsListView.TabIndex = 10;
             // 
             // MainView
             // 
@@ -84,7 +84,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 447);
             this.Controls.Add(this.windowDetailsView1);
-            this.Controls.Add(this.windowsListView1);
+            this.Controls.Add(this._windowsListView);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -99,7 +99,7 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
-        private UI.WindowsListView windowsListView1;
+        private UI.WindowsListView _windowsListView;
         private UI.WindowDetailsView windowDetailsView1;
     }
 }

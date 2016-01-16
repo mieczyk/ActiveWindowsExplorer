@@ -2,7 +2,7 @@
 
 namespace ActiveWindowsExplorer.UI
 {
-    public partial class WindowDetailsView : UserControl, IWindowsListView
+    public partial class WindowDetailsView : UserControl, IWindowDetailsView
     {
         public WindowDetailsView()
         {

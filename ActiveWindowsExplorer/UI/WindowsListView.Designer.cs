@@ -92,6 +92,7 @@
             this._refreshButton.Size = new System.Drawing.Size(35, 38);
             this._refreshButton.TabIndex = 10;
             this._refreshButton.UseVisualStyleBackColor = true;
+            this._refreshButton.Click += new System.EventHandler(this._refreshButton_Click);
             // 
             // _searchButton
             // 

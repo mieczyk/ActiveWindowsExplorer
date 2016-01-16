@@ -68,6 +68,7 @@
     <Compile Include="UI\WindowDetailsView.Designer.cs">
       <DependentUpon>WindowDetailsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\WindowsListPresenter.cs" />
     <Compile Include="UI\WindowsListView.cs">
       <SubType>UserControl</SubType>
     </Compile>
