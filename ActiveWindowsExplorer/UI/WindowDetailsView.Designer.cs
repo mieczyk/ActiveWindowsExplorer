@@ -62,6 +62,8 @@
             // 
             // _classTextBox
             // 
+            this._classTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._classTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this._classTextBox.Location = new System.Drawing.Point(19, 206);
             this._classTextBox.Name = "_classTextBox";
@@ -70,6 +72,8 @@
             // 
             // _titleTextBox
             // 
+            this._titleTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._titleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this._titleTextBox.Location = new System.Drawing.Point(19, 144);
             this._titleTextBox.Name = "_titleTextBox";
