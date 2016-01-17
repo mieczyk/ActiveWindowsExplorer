@@ -47,7 +47,7 @@ namespace ActiveWindowsExplorer.UI
             }
         }
 
-        private void _refreshButton_Click(object sender, System.EventArgs e)
+        private void _refreshButton_Click(object sender, EventArgs e)
         {
             if (_presenter == null)
             {
