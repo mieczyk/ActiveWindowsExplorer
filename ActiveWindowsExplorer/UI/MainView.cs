@@ -3,6 +3,10 @@ using ActiveWindowsExplorer.Core;
 
 namespace ActiveWindowsExplorer.UI
 {
+    public interface IMainView
+    {
+    }
+
     public partial class MainView : Form, IMainView
     {
         public MainView()
@@ -11,7 +15,7 @@ namespace ActiveWindowsExplorer.UI
             
             var manager = new WindowsManager(new WindowsExplorer());
             
-            _windowsListView.AttachPresenter(new WindowsListPresenter(_windowsListView, manager));
+            _windowsListView.Initialize(new WindowsListPresenter(_windowsListView, manager));
         }
     }
 }

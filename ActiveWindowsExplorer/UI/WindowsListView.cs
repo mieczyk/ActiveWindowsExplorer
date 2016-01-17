@@ -6,6 +6,12 @@ using ActiveWindowsExplorer.Core;
 
 namespace ActiveWindowsExplorer.UI
 {
+    public interface IWindowsListView
+    {
+        void Initialize(WindowsListPresenter presenter);
+        void PopulateTreeView(IReadOnlyCollection<WindowInfo> windows);
+    }
+
     public partial class WindowsListView : UserControl, IWindowsListView
     {
         private WindowsListPresenter _presenter;
@@ -15,9 +21,11 @@ namespace ActiveWindowsExplorer.UI
             InitializeComponent();
         }
 
-        public void AttachPresenter(WindowsListPresenter presenter)
+        public void Initialize(WindowsListPresenter presenter)
         {
             _presenter = presenter;
+
+            _presenter.Refresh();
         }
 
         public void PopulateTreeView(IReadOnlyCollection<WindowInfo> windows)
